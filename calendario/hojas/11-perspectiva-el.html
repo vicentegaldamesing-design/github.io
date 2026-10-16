@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hoja 11 · Vista en perspectiva para él</title>
+  <link rel="stylesheet" href="../css/shared.css" />
+  <link rel="stylesheet" href="../css/sheets.css" />
+</head>
+<body>
+  <div class="workspace">
+    <article class="plana plana--a3">
+      <header class="plana-header">
+        <h1>Vista en perspectiva · para él</h1>
+        <span class="num">Hoja 11 / 14</span>
+      </header>
+      <div class="plana-body">
+        <div class="mockups">
+          <div>
+            <div class="mock-lid plaid-el">
+              <div class="cover-label label-el" style="width:9cm;padding:0.6cm;transform:translate(-50%,-50%)">
+                <h2 style="font-size:9pt">CALENDARIO DE ADVIENTO</h2>
+                <span class="para script" style="font-size:18pt">para él</span>
+                <p class="sub" style="font-size:6pt">24 DÍAS DE PEQUEÑAS SORPRESAS</p>
+              </div>
+              <div class="ribbon-wrap" style="right:18%">
+                <div class="ribbon"></div>
+                <div class="bow" style="transform:scale(0.7);transform-origin:top center">
+                  <div class="loop l"></div><div class="loop r"></div><div class="knot"></div>
+                  <div class="tail l"></div><div class="tail r"></div>
+                </div>
+              </div>
+            </div>
+            <p class="mock-caption">Caja cerrada</p>
+          </div>
+          <div>
+            <div id="open" class="mock-open"></div>
+            <p class="mock-caption">Caja abierta · 24 cajitas</p>
+          </div>
+        </div>
+        <p class="dims-note">Referencia visual del producto terminado · no es plantilla de corte</p>
+      </div>
+    </article>
+  </div>
+  <script src="../js/icons.js"></script>
+  <script src="../js/nav.js"></script>
+  <script>
+    const open = document.getElementById('open');
+    for (let d = 1; d <= 24; d++) {
+      const cell = document.createElement('div');
+      cell.className = 'cell';
+      cell.style.background = colorFor('el', d);
+      cell.textContent = d;
+      open.appendChild(cell);
+    }
+  </script>
+</body>
+</html>
