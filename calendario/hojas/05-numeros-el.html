@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hoja 05 · Números e iconos para él</title>
+  <link rel="stylesheet" href="../css/shared.css" />
+  <link rel="stylesheet" href="../css/sheets.css" />
+</head>
+<body>
+  <div class="workspace">
+    <article class="plana plana--a3">
+      <header class="plana-header">
+        <h1>Hoja de números e iconos · para él</h1>
+        <span class="num">Hoja 05 / 14</span>
+      </header>
+      <div class="plana-body">
+        <p class="dims-note" style="margin-bottom:0.5cm">24 etiquetas individuales · recorta por la línea sólida y pega en cada cajita</p>
+        <div id="tags" class="tags"></div>
+      </div>
+    </article>
+  </div>
+  <script src="../js/icons.js"></script>
+  <script src="../js/nav.js"></script>
+  <script>
+    const tags = document.getElementById('tags');
+    for (let d = 1; d <= 24; d++) {
+      const tag = document.createElement('div');
+      tag.className = 'tag';
+      tag.style.background = colorFor('el', d);
+      tag.innerHTML = `<span class="num">${d}</span><div class="icon-wrap">${iconFor('el', d)}</div>`;
+      tags.appendChild(tag);
+    }
+  </script>
+</body>
+</html>

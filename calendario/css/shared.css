@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&display=swap');
+
+:root {
+  --navy: #1a2b45;
+  --forest: #1b3022;
+  --charcoal: #2c2c2c;
+  --kraft: #a88c6c;
+  --ochre: #a66b3b;
+  --gold: #c9a84c;
+  --cream: #f7f0e4;
+  --ink: #0f1a24;
+
+  --deep-red: #6b1a28;
+  --rose: #c97b8a;
+  --soft-pink: #f4c2c2;
+  --blush: #e8a0a8;
+  --wine: #8b2942;
+  --ella-cream: #fff8f0;
+
+  --cut: #111;
+  --fold: #555;
+  --page-w: 42cm;
+  --page-h: 30cm;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  color: var(--ink);
+  background: #e8e4dc;
+}
+
+.sheet-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background: #1a1a1a;
+  color: #f5f0e8;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.sheet-nav a {
+  color: #f5f0e8;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  font-size: 0.95rem;
+}
+
+.sheet-nav a:hover {
+  border-bottom-color: var(--gold);
+}
+
+.sheet-nav .meta {
+  opacity: 0.7;
+  font-size: 0.85rem;
+}
+
+.sheet-nav button {
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--gold);
+  cursor: pointer;
+}
+
+.sheet-nav button:hover {
+  background: var(--gold);
+  color: #1a1a1a;
+}
+
+.workspace {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Printable page — flat template size 42×30 cm */
+.plana {
+  width: var(--page-w);
+  min-height: var(--page-h);
+  background: #fff;
+  position: relative;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+.plana--a3 {
+  width: 42cm;
+  min-height: 29.7cm;
+}
+
+.plana--a4 {
+  width: 21cm;
+  min-height: 29.7cm;
+}
+
+.plana-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.6cm 0.8cm 0.35cm;
+  border-bottom: 1px solid #ddd;
+}
+
+.plana-header h1 {
+  margin: 0;
+  font-size: 14pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.plana-header .num {
+  font-size: 11pt;
+  color: #666;
+}
+
+.plana-body {
+  padding: 0.7cm 0.8cm 0.8cm;
+}
+
+.script {
+  font-family: 'Great Vibes', cursive;
+  font-weight: 400;
+}
+
+.legend {
+  display: flex;
+  gap: 1.2cm;
+  align-items: center;
+  margin-top: 0.5cm;
+  font-size: 9pt;
+  color: #444;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.3cm;
+}
+
+.legend-line {
+  width: 1.4cm;
+  height: 0;
+}
+
+.legend-line.cut {
+  border-top: 1.5px solid var(--cut);
+}
+
+.legend-line.fold {
+  border-top: 1.5px dashed var(--fold);
+}
+
+.legend-tab {
+  width: 0.7cm;
+  height: 0.45cm;
+  background: #c5d8ef;
+  border: 1px solid #7a9cc4;
+  clip-path: polygon(15% 0, 85% 0, 100% 100%, 0 100%);
+}
+
+/* Cut / fold helpers */
+.cut-edge {
+  border: 1.5px solid var(--cut);
+}
+
+.fold-edge {
+  border: 1.5px dashed var(--fold);
+}
+
+.glue-tab {
+  background: #c5d8ef;
+  border: 1px solid #7a9cc4;
+}
+
+/* Plaid patterns — classic tartan, visible at print size */
+.plaid-el {
+  background-color: #16301f;
+  background-image:
+    /* fine gold threads */
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 11px,
+      rgba(201, 168, 76, 0.45) 11px 12px,
+      transparent 12px 23px,
+      rgba(201, 168, 76, 0.25) 23px 24px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 11px,
+      rgba(201, 168, 76, 0.4) 11px 12px,
+      transparent 12px 23px,
+      rgba(201, 168, 76, 0.22) 23px 24px
+    ),
+    /* navy bands */
+    repeating-linear-gradient(
+      90deg,
+      #16301f 0 28px,
+      #1a2b45 28px 56px,
+      #0f1f16 56px 70px,
+      #1a2b45 70px 98px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      #16301f 0 28px,
+      #1a2b45 28px 56px,
+      #0f1f16 56px 70px,
+      #1a2b45 70px 98px
+    );
+}
+
+.plaid-ella {
+  background-color: #f3d0d4;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 11px,
+      rgba(255, 255, 255, 0.75) 11px 12px,
+      transparent 12px 23px,
+      rgba(139, 41, 66, 0.35) 23px 24px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 11px,
+      rgba(255, 255, 255, 0.7) 11px 12px,
+      transparent 12px 23px,
+      rgba(139, 41, 66, 0.3) 23px 24px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      #f8e4e6 0 28px,
+      #e8a0a8 28px 56px,
+      #f4c2c2 56px 70px,
+      #d47886 70px 98px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      #f8e4e6 0 28px,
+      #e8a0a8 28px 56px,
+      #f4c2c2 56px 70px,
+      #d47886 70px 98px
+    );
+}
+
+.label-el {
+  background: var(--navy);
+  color: var(--cream);
+  border: 2.5px solid var(--gold);
+}
+
+.label-ella {
+  background: var(--ella-cream);
+  color: var(--deep-red);
+  border: 2.5px solid var(--wine);
+}
+
+.icon-svg {
+  width: 1.6cm;
+  height: 1.6cm;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon-svg.filled {
+  fill: currentColor;
+  stroke: none;
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .sheet-nav,
+  .no-print {
+    display: none !important;
+  }
+
+  .workspace {
+    padding: 0;
+  }
+
+  .plana {
+    box-shadow: none;
+    page-break-after: always;
+    width: 100%;
+    min-height: auto;
+  }
+
+  @page {
+    size: A3 landscape;
+    margin: 0.6cm;
+  }
+}
